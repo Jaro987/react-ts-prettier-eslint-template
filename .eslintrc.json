@@ -1,0 +1,88 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true
+    },
+    "extends": [
+        "react-app",
+        "react-app/jest",
+        "airbnb",
+        "airbnb-typescript",
+        "plugin:import/typescript",
+        "plugin:prettier/recommended",
+        "plugin:react/jsx-runtime"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "prettier"
+
+    ],
+    "rules": {
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin", // Built-in imports (come from NodeJS native) go first
+              "external", // <- External imports
+              "internal", // <- Absolute imports
+              ["sibling", "parent"], // <- Relative imports, the sibling and parent types they can be mingled together
+              "index", // <- index imports
+              "unknown" // <- unknown
+            ],
+            "newlines-between": "always",
+            "alphabetize": {
+              /* sort in ascending order. Options: ["ignore", "asc", "desc"] */
+              "order": "asc",
+              /* ignore case. Options: [true, false] */
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "no-case-declarations": "off",
+        "react/prop-types": "off",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "eol-last": "error",
+        "max-len": [
+          1,
+          120,
+          2,
+          {
+            "ignoreComments": true,
+            "ignoreStrings": true
+          }
+        ],
+        "react/jsx-curly-brace-presence": [
+          "error",
+          {
+            "props": "always",
+            "children": "always",
+            "propElementValues": "always"
+          }
+        ],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "variable",
+            "format": ["camelCase", "PascalCase", "UPPER_CASE", "snake_case"]
+          }
+        ],
+        "prettier/prettier": [
+          "error",
+          {
+            "endOfLine": "lf"
+          }
+        ]
+      }
+}
